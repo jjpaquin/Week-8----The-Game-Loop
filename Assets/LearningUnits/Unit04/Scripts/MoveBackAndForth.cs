@@ -37,14 +37,14 @@ public class MoveBackAndForth : MonoBehaviour
 
         moveAmount += moveSpeed;// We increase the moveAmount based on the moveSpped, and therefore 
         // change the position in the Lerp method above on the next Update() cycle
-
+        
         // NOTE: Uncomment the four code lines below, and change what is inside the "if statement" to make this work
         // You should NOT write any new lines of code-- just change what is inside the "if statement"
 
-        //if (Something...)
-        //{
-        //    moveSpeed = -moveSpeed;
-        //}
+        if ((moveAmount >= 1) || (moveAmount <= 0))
+        {
+            moveSpeed = -moveSpeed;
+        }
 
 
     }

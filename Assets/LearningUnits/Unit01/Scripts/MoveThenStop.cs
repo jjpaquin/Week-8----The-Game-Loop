@@ -25,6 +25,7 @@ public class MoveThenStop : MonoBehaviour
         
         if (Vector3.Distance(transform.position, destination) < .1f)
         {
+            moveDirection = new Vector3(0, 0, 0);
         }
 
         return;

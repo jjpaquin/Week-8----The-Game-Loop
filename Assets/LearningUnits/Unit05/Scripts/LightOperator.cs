@@ -7,7 +7,7 @@ public class LightOperator : MonoBehaviour
     [SerializeField] GameObject redCube, blueCube;
     [SerializeField] Light pointLight;
 
-    bool isRedCubeDetected, isBlueCubeDeteced;
+    bool isRedCubeDetected, isBlueCubeDetected;
 
     // DIRECTIONS: We want the light to turn on when ONLY the red cube is in the trigger zone
     // You only need to make additions to the code in the Update() method;
@@ -21,18 +21,23 @@ public class LightOperator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if...
-        pointLight.enabled = true;
+        if (isRedCubeDetected)
+        {
+            pointLight.enabled = true;
+        }
 
-        // else
-        pointLight.enabled = false;
+        else
+        {
+            pointLight.enabled = false;
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == blueCube)
         {
-            isBlueCubeDeteced = true;
+            isBlueCubeDetected = true;
         }
 
         if (other.gameObject == redCube)
@@ -45,7 +50,7 @@ public class LightOperator : MonoBehaviour
     {
         if (other.gameObject == blueCube)
         {
-            isBlueCubeDeteced = false;
+            isBlueCubeDetected = false;
         }
 
         if (other.gameObject == redCube)
